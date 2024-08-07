@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TargetAI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static int sTime = Random.Range(3, 15);
+    public int show;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

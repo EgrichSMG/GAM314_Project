@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float targetTime = 60.0f;
+    public float targetTime = 120.0f;
 
     // Start is called before the first frame update
     void Start()
