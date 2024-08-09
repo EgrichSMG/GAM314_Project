@@ -1,30 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float targetTime = 120.0f;
+    public float targetTime;
+    public bool timerOn = true;
 
-    // Start is called before the first frame update
+    public Text TimerTxt;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        targetTime -= Time.deltaTime;
-
-        if (targetTime <= 0)
+        if (targetTime > 0)
+        {
+            targetTime -= Time.deltaTime;
+            updateTime(targetTime);
+        }
+        else
         {
             timerEnded();
         }
+        
+    }
+
+    void updateTime(float currentTime)
+    {
+        currentTime += 1;
+
+        float minutes = currentTime / 60;
+        float seconds = currentTime % 60;
+
+        TimerTxt.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
     void timerEnded()
     {
-
+        Debug.Log("Time's up!");
+        targetTime = 0;
+        timerOn = false;
     }
+
 }
